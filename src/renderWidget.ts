@@ -3,7 +3,7 @@ import { stages, Youtube } from '@/stages';
 export function renderWidget() {
   let nextRendered = false;
   return stages.reduce((res, curr, index) => {
-    const isNext = !nextRendered && !curr.done;
+    const isNext = !nextRendered && !curr.ready;
     if (isNext) {
       nextRendered = true;
     }
