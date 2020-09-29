@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <iframe
-        v-bind:src="'https://www.youtube.com/embed/' + id"
+        v-bind:src="'https://www.youtube.com/embed/' + youtube.id + `${youtube.start ? '?start=' + youtube.start : ''}`"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
@@ -10,15 +10,16 @@
 </template>
 
 <script lang="ts">
+import { Youtube } from '@/stages';
 import { Options, Vue } from 'vue-class-component';
 
 @Options({
   props: {
-    id: String,
+    youtube: Object,
   },
 })
 export default class YoutubeEmbed extends Vue {
-  id!: string;
+  youtube!: Youtube;
 }
 </script>
 
