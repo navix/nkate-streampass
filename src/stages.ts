@@ -7,7 +7,7 @@ export const stages: {
 }[] = [
   {
     amount: 1000,
-    description: 'Допроходимо Clustertruck (згорю) 🔥',
+    description: '1111111Допроходимо Clustertruck (згорю) 🔥',
     ready: true,
     done: true,
     youtube: ['mvSQYobMn68', 'MG54wswdgFM', '4uYKSIF9GcA'],
