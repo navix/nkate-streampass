@@ -11,7 +11,7 @@ export function renderWidget() {
       + `${isNext ? '##### ' : ''}`
       + `**${index + 1} ${curr.done ? '✅' : curr.ready ? '⬜' : curr.emoji} ${curr.amount}** — ${curr.description}`
       + `${curr.youtube && curr.youtube.length > 0 ? ` (${renderYoutubeLinks(curr.youtube)})` : ''}`;
-  }, '');
+  }, '') + `\n\n##### >>>> [Stream Pass](https://pass.nkate.com/) <<<<`;
 }
 
 function renderYoutubeLinks(youtube: Youtube[]) {
