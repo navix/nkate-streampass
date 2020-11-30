@@ -1,6 +1,17 @@
 <template>
-  <h1 class="title">Nkate — Stream Pass</h1>
-  <h2 class="sub-title" v-on:click="renderWidget()">Season 1</h2>
+  <h1 class="title">
+    nkate
+    <span class="sub">stream pass</span>
+  </h1>
+  <h2 class="sub-title">
+    <button
+        v-for="season in seasons"
+        v-on:click="setCurrentSeason(season)"
+        :class="{'-active': season === currentSeason}"
+    >
+      {{ season.title }}
+    </button>
+  </h2>
   <div
       v-for="(stage, index) in stages"
       class="stage"
@@ -28,7 +39,9 @@
 import ArrowIcon from '@/components/ArrowIcon.vue';
 import YoutubeEmbed from '@/components/YoutubeEmbed.vue';
 import { renderWidget } from '@/renderWidget';
-import { stages } from '@/stages';
+import { Season } from '@/seasons/meta';
+import { season1 } from '@/seasons/season-1';
+import { seasons } from '@/seasons/seasons';
 import { Options, Vue } from 'vue-class-component';
 
 @Options({
@@ -38,12 +51,26 @@ import { Options, Vue } from 'vue-class-component';
   },
 })
 export default class App extends Vue {
-  stages = stages.map(s => ({...s, hasYoutube: s.youtube ? s.youtube.length > 0 : false}));
+  seasons = seasons;
+
+  currentSeason?: Season;
+
+  stages: any[] = [];
 
   opened: number | null = null;
 
+  mounted() {
+    this.setCurrentSeason(this.seasons[0]);
+  }
+
+  setCurrentSeason(season: Season) {
+    this.opened = null;
+    this.currentSeason = season;
+    this.stages = season.stages.map(s => ({...s, hasYoutube: s.youtube ? s.youtube.length > 0 : false}));
+  }
+
   renderWidget() {
-    alert(renderWidget());
+    alert(renderWidget(season1));
   }
 }
 </script>
@@ -55,10 +82,14 @@ html {
   font-family: 'Inter', Arial, sans-serif;
   min-height: 100%;
   background: rgb(66, 72, 77);
-  background: linear-gradient(146deg, rgba(66, 72, 77, 1) 0%, rgba(40, 44, 49, 1) 100%);
+  background-image: linear-gradient(240deg, #181c1d, #1c2020);
   font-size: 16px;
   color: #ffffff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
+}
+
+button {
+  font-family: 'Inter', Arial, sans-serif;
 }
 
 body {
@@ -66,20 +97,42 @@ body {
   max-width: 900px;
   border-radius: 1rem;
   padding: 2rem 3rem;
-  background: #292c31;
-  box-shadow: 20px 15px 37px rgba(0, 0, 0, .45), 18px 10px 16px rgba(0, 0, 0, .05);
+  background-image: linear-gradient(240deg, #282f33, #040404);
+  border: 1px solid #2b3338;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, .4);
 }
 
 .title {
   text-align: center;
-  font-size: 3rem;
+  font-size: 4rem;
+  letter-spacing: -4px;
+  .sub {
+    color: #777777;
+  }
 }
 
 .sub-title {
-  color: #df5c54;
-  text-align: center;
-  font-size: 2rem;
   margin-bottom: 4rem;
+  text-align: center;
+  button {
+    border: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    outline: none;
+    background: transparent;
+    color: #aaaaaa;
+    &.-active {
+      animation: gradMove 5s ease infinite;
+      background: linear-gradient(-45deg, #e73c7e, #b00df6, #23a6d5, #23d5ab);
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-size: 250% 250%;
+      -webkit-text-fill-color: transparent;
+      text-fill-color: transparent;
+      font-weight: 700;;
+    }
+  }
 }
 
 .stage {
@@ -102,9 +155,7 @@ body {
   .panel {
     align-items: center;
     display: flex;
-    background: linear-gradient(145deg, #25282c, #2c2f34);
-    box-shadow: 9px 9px 29px #1d1f22,
-    -9px -9px 29px #353940;
+    background: #282f33;
     border-radius: .5rem;
     padding: 1.5rem 2rem;
     .emoji {
@@ -142,6 +193,18 @@ body {
       box-shadow: inset 11px 11px 22px #358f49,
       inset -11px -11px 22px #67ff8d;
     }
+  }
+}
+
+@keyframes gradMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 </style>

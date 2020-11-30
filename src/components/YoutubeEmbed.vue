@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { Youtube } from '@/stages';
+import { Youtube } from '@/seasons/meta';
 import { Options, Vue } from 'vue-class-component';
 
 @Options({

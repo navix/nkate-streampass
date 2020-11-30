@@ -1,8 +1,8 @@
-import { stages, Youtube } from '@/stages';
+import { Season, Youtube } from '@/seasons/meta';
 
-export function renderWidget() {
+export function renderWidget(season: Season) {
   let nextRendered = false;
-  return stages.reduce((res, curr, index) => {
+  return season.stages.reduce((res, curr, index) => {
     const isNext = !nextRendered && !curr.ready;
     if (isNext) {
       nextRendered = true;
