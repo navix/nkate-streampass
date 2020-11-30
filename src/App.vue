@@ -7,6 +7,7 @@
     <button
         v-for="season in seasons"
         v-on:click="setCurrentSeason(season)"
+        v-on:dblclick="renderWidget(season)"
         :class="{'-active': season === currentSeason}"
     >
       {{ season.title }}
@@ -69,8 +70,8 @@ export default class App extends Vue {
     this.stages = season.stages.map(s => ({...s, hasYoutube: s.youtube ? s.youtube.length > 0 : false}));
   }
 
-  renderWidget() {
-    alert(renderWidget(season1));
+  renderWidget(season: Season) {
+    alert(renderWidget(season));
   }
 }
 </script>

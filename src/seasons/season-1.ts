@@ -57,21 +57,27 @@ export const season1: Season = {
       amount: 10000,
       emoji: '✋',
       description: 'Граємо у Metal Gear Solid V: The Phantom Pain (моє знайомство з Кодзіма)',
+      ready: true,
+      done: true,
+      youtube: [{id: 'MIsojUshbBI'}],
     },
     {
       amount: 12500,
       emoji: '🥑',
       description: 'Minecraft (збираємось всі разом на город)',
+      ready: true,
     },
     {
       amount: 15000,
       emoji: '💣',
       description: 'DARK SOULS III 🔥🔥🔥',
+      ready: true,
     },
     {
       amount: 25000,
       emoji: '💀',
       description: 'Пройти Alien: Isolation (мінус сердечко)',
+      ready: true
     },
     {
       amount: 100000,
