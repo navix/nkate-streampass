@@ -50,7 +50,7 @@ export const season2: Season = {
     },
     {
       amount: 50000,
-      description: 'Заовдимо Patreon зі смаколиками',
+      description: 'Заводимо Patreon зі смаколиками',
       emoji: '🍪',
     },
   ],
