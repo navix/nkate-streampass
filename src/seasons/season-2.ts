@@ -50,8 +50,8 @@ export const season2: Season = {
     },
     {
       amount: 50000,
-      description: 'Граю Dead Space',
-      emoji: '💀',
+      description: 'Заовдимо Patreon зі смаколиками',
+      emoji: '🍪',
     },
   ],
 };
