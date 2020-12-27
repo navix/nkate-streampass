@@ -72,6 +72,10 @@ export const season1: Season = {
       emoji: '💣',
       description: 'DARK SOULS III 🔥🔥🔥',
       ready: true,
+      done: true,
+      youtube: [{id: 'dDkEJhpWIxg'}, {id: 'tgqAXL6ya6c'}, {id: 'LZIgOlat-y0'}, {id: 'N3EThfuDB-c'}, {id: 'LTQVwX39Au0'}, {id: 'r_Y0a4jr9h8'}, {id: 'HOragHxsBU8'},
+                {id: '1Bt79rMr-S4'}, {id: 'wVvjjhhNTPI'}, {id: '1Bw9u-silHg'}, {id: 'rDFYX-SD-3o'}, {id: 'd2PdRIxp3FQ'}, {id: 'jeOZ3N60r4o'}, {id: 'iUp2I1oXydE'}, 
+                {id: 'vHMBxk6WzgY'}, {id: 'Rod6vBo8UWc'}, {id: 'VBcynV_RGsU'}, {id: 'u9qajANr9o8'}, {id: 'IzoOiI-yu3g'}],
     },
     {
       amount: 25000,
