@@ -7,8 +7,8 @@ export interface SeasonStage {
   amount: number;
   emoji?: string;
   description: string;
-  ready?: true;
-  done?: true;
+  ready?: boolean;
+  done?: boolean;
   youtube?: Youtube[];
 }
 
